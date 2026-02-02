@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emma 💜 Will You Be My Valentine?</title>
+
+<style>
+:root {
+  --purple: #7b4ae2;
+  --lavender: #e9ddff;
+  --dark: #3b1d6b;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #2b0a3d, #6b3fa0);
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 24px;
+  max-width: 420px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.slideshow {
+  width: 100%;
+  height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.question {
+  background: rgba(255,255,255,0.12);
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.buttons {
+  margin-top: 30px;
+  position: relative;
+  height: 140px;
+}
+
+button {
+  border: none;
+  padding: 16px 22px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff8bdc, #b56bff);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+#noBtn {
+  position: absolute;
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  background: #222;
+  color: #aaa;
+}
+
+.final {
+  display: none;
+  margin-top: 30px;
+  background: rgba(255,255,255,0.15);
+  padding: 24px;
+  border-radius: 20px;
+}
+
+.final h2 {
+  margin-bottom: 12px;
+  color: #ffd6ff;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="love.mp3" loop></audio>
+
+<div class="container">
+
+  <h1>💜 Emma 💜</h1>
+
+  <div class="slideshow">
+    <img id="slide" src="IMG_6212.JPG" />
+  </div>
+
+  <div class="question">
+    <p>
+      Emma, you are my perfect, beautiful, sexy, Japanese, soulmate.  
+      Now can we add to that?  
+      <br /><br />
+      <strong>Will you be my valentine?</strong>
+    </p>
+  </div>
+
+  <div class="buttons">
+    <button id="yesBtn">Together, forever. Soulmates.</button>
+    <button id="noBtn">no</button>
+  </div>
+
+  <div class="final" id="finalMessage">
+    <h2>My Love 💜</h2>
+    <p>
+      From the moment you came into my life, everything became warmer, brighter,
+      and more meaningful. You make me feel loved in ways I didn’t even know were
+      possible. Your kindness, your laugh, your heart — they are my favorite things
+      in the world.
+      <br /><br />
+      I am endlessly grateful for you, for us, and for the love we share. I can’t
+      wait to be with you in Tokyo, to spend an entire month together, exploring,
+      laughing, holding each other, and creating memories that we’ll carry forever.
+      <br /><br />
+      You are my home, my future, and my greatest happiness. I love you more than
+      words could ever say.
+    </p>
+  </div>
+
+</div>
+
+<script>
+const images = [
+  "IMG_6212.JPG",
+  "IMG_6969.jpg",
+  "IMG_7318.jpg",
+  "IMG_7420.jpg",
+  "IMG_7453.jpg",
+  "IMG_8201.jpg"
+];
+
+let index = 0;
+const slide = document.getElementById("slide");
+
+setInterval(() => {
+  index = (index + 1) % images.length;
+  slide.src = images[index];
+}, 3000);
+
+// Music autoplay
+const music = document.getElementById("bgMusic");
+music.volume = 0.75;
+document.body.addEventListener("click", () => {
+  music.play();
+}, { once: true });
+
+// NO button runs away
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter", () => {
+  const x = Math.random() * 240;
+  const y = Math.random() * 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// YES button
+document.getElementById("yesBtn").addEventListener("click", () => {
+  document.getElementById("finalMessage").style.display = "block";
+});
+</script>
+
+</body>
+</html>
